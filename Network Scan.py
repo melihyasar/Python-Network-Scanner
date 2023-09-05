@@ -4,7 +4,7 @@ import platform
 try:
     import scapy.all as scapy
 except ImportError:
-    raise ImportError("Unable to import scapy. Please make sure it is installed")
+    raise ImportError("Unable to import scapy. Please make sure it is installed") from None
 
 if not os.environ.get("SUDO_UID"):
     raise PermissionError("You need to run this script with sudo.")
