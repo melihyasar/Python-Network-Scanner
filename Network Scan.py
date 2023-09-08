@@ -53,7 +53,7 @@ request_broadcast = broadcast / request
 # -----------Creating ARP package------------
 
 print('How many times will the scanner run?')
-print('A value of 15 should be enough. You can use a higher value to make sure the program detect all devices connected to the network.')
+print('A value of 15 should be enough. You can use a higher value to ensure that the program detects all devices connected to the network.')
 scan_duration = user_input('Specify Scanner Duration: ')
 print("\033[A" + "\033[K", end='')
 print("\033[A" + "\033[K", end='')
