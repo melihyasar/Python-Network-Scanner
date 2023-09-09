@@ -30,7 +30,7 @@ def user_input(message):
         else:
             print("\033[A" + "\033[K", end='')
             return user_input('Please enter a valid value: ')
-    except:
+    except ValueError:
         print("\033[A" + "\033[K", end='')
         return user_input('Please enter a valid value: ')
 
@@ -53,7 +53,7 @@ request_broadcast = broadcast / request
 # -----------Creating ARP package------------
 
 print('How many times will the scanner run?')
-print('A value of 15 should be enough. You can use a higher value to ensure that the program detects all devices connected to the network.')
+print('A value of 50 should be enough. You can use a higher value to ensure that the program detects all devices connected to the network.')
 scan_duration = user_input('Specify Scanner Duration: ')
 print("\033[A" + "\033[K", end='')
 print("\033[A" + "\033[K", end='')
@@ -62,9 +62,8 @@ print("\033[A" + "\033[K", end='')
 found_devices = Devices(router_ip)
 
 for i in range(1, scan_duration + 1):
-    print("\r", end="")
     print(f'Times Scanned:{i}/{scan_duration}', end='\r')
-    clients, unans = scapy.srp(request_broadcast, timeout=1, verbose=0)
+    clients = scapy.srp(request_broadcast, timeout=0.1, verbose=0)[0]
     for element in clients:
         found_devices.add_device(element[1].psrc, element[1].hwsrc)
 
