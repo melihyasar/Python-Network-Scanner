@@ -51,7 +51,7 @@ broadcast = scapy.Ether()
 broadcast.dst = 'ff:ff:ff:ff:ff:ff'
 request_broadcast = broadcast / request
 # -----------Creating ARP package------------
-request_broadcast.show()
+
 
 print('How many times will the scanner run?')
 print('A value of 25 should be enough. You can use a higher value to ensure that the program detects all devices connected to the network.')
